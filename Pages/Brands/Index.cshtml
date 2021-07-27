@@ -1,0 +1,54 @@
+﻿@page
+@model Electronic_Gadget.Pages.Brands.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<link href="temp/css/bootstrap.min.css" rel="stylesheet">
+<link href="temp/css/global.css" rel="stylesheet">
+<link href="temp/css/index.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="temp/css/font-awesome.min.css" />
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand[0].Brand_Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand[0].Location)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Brand[0].Email)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.Brand)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Brand_Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Location)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Email)
+                </td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-page="./Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-page="./Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

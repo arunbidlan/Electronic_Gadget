@@ -1,0 +1,49 @@
+﻿@page
+@model Electronic_Gadget.Pages.Brands.CreateModel
+
+@{
+    ViewData["Title"] = "Create";
+}
+<link href="~/css/site.css" rel="stylesheet" />
+<link href="temp/css/bootstrap.min.css" rel="stylesheet">
+<link href="temp/css/global.css" rel="stylesheet">
+<link href="temp/css/index.css" rel="stylesheet">
+
+<link rel="stylesheet" type="text/css" href="temp/css/font-awesome.min.css" />
+<h1>Create</h1>
+
+<h4>Brand</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Brand.Brand_Name" class="control-label"></label>
+                <input asp-for="Brand.Brand_Name" class="form-control" />
+                <span asp-validation-for="Brand.Brand_Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand.Location" class="control-label"></label>
+                <input asp-for="Brand.Location" class="form-control" />
+                <span asp-validation-for="Brand.Location" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Brand.Email" class="control-label"></label>
+                <input asp-for="Brand.Email" class="form-control" />
+                <span asp-validation-for="Brand.Email" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
